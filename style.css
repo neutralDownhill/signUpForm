@@ -16,13 +16,25 @@ body > div {
 }
 
 h1 {
+    display: block;
     font-family: 'Mooli', sans-serif;
     font-size: 4em;
+    line-height: 3em;
+    margin: 0;
 }
 
 h2 {
     margin: 125px var(--right-col-spacing) 50px;
     max-width: 700px;
+}
+
+a, a:hover, a:visited {
+    color: #3A584F;
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
 }
 
 #colLeft {
@@ -40,10 +52,21 @@ h2 {
     background-color: #000;
     color: #fff;
     flex: 0 0 auto;
-    margin: 15px auto 60vh;
+    margin: 63% auto auto;
     opacity: .5;
     text-align: center;
     width: 100%;
+}
+
+#logo:has(> a:hover) {
+    opacity: 0.7;
+}
+
+#logo a, #logo a:hover, #logo a:visited {
+    color: #fff;
+    display: block;
+    height: 100%;
+    text-decoration: none;
 }
 
 #colLeft p {
@@ -75,20 +98,43 @@ form section {
 
 .input {
     flex: 1 1 34%;
+    position: relative;
 }
 
 input {
-    border: 1px solid #999;
+    border: 1px solid #b9b9b9;
     border-radius: 5px;
     min-width: 160px;
     padding: 5px;
     width: calc(100% - 12px);
 }
 
-input:valid {
-    border: 1px solid green;
+input:focus {
+    border: 1px solid #3A584F;
+    box-shadow: 0 0 10px hsl(0, 0%, 75%);
+    outline: none;
 }
 
+.invalid {
+    border: 1px solid red;
+}
+
+input:valid {
+    border: 1px solid #379137;
+}
+
+.error {
+    display: none;
+    font-size: 0.75em;
+    line-height: 1.5em;
+    margin-top: 1px;
+    position: absolute;
+    width: inherit;
+}
+
+.input:has(> input:focus) > .error {
+    display: initial;
+}
 
 fieldset {
     border: 0;
@@ -105,12 +151,12 @@ legend {
     padding-bottom: 35px;
 }
 
-#createAccount {
-    background: #29717a;
+#createAccount-submit {
+    background: #3A584F;
     border: 0;
     border-radius: 10px;
     color: #fff;
-    margin: var(--right-col-spacing) 0 15px var(--right-col-spacing);
+    margin: var(--right-col-spacing) 0 5px var(--right-col-spacing);
     padding: 10px 20px;
 }
 
@@ -136,5 +182,9 @@ p {
         background: none;
         margin: 0;
         opacity: .7;
+    }
+
+    h2 {
+        margin-top: 50px;
     }
   }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign-up</title>
 
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +16,9 @@
 <body>
     <div id="colLeft">
         <div id="logo">
-            <h1>{ tp }</h1>
+            <a href="../">
+                <h1>{ tp }</h1>
+            </a>
         </div>
         <p>Photo by 
             <a href="https://www.pexels.com/@matreding/">Mathias Reding</a>
@@ -34,43 +36,50 @@
             You <em>know</em> you want to.
         </h2>
 
-        <form>
+        <form id="createAccount">
             <section>
                 <fieldset>
                     <legend>Let's do this!</legend>
                     <div class="input">
                         <label for="firstName">FIRST NAME</label>
                         <input id="firstName" type="text" minlength="1" required>
+                        <div class="error"></div>
                     </div>
 
                     <div class="input">
                         <label for="lastName">LAST NAME</label>
                         <input id="lastName" type="text" minlength="1" required>
+                        <div class="error"></div>
                     </div>
 
                     <div class="input">
                         <label for="email">EMAIL</label>
-                        <input id="email" type="email" required>
+                        <input id="email" type="email" inputmode="email" required>
+                        <div class="error"></div>
                     </div>
 
                     <div class="input">
                         <label for="phoneNumber">PHONE NUMBER</label>
-                        <input id="phoneNumber" type="tel" minlength="7" required>
+                        <input id="phoneNumber" type="tel" inputmode="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"'>
+                        <div class="error"></div>
                     </div>
 
+                    <!--password requires 1 cap letter, 1 num, > 8 chars-->
                     <div class="input">
                         <label for="password">PASSWORD</label>
-                        <input id="password" type="password" required>
+                        <input id="password" type="password" required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'>
+                        <div class="error"></div>
                     </div>
 
                     <div class="input">
                         <label for="passwordConfirm">CONFIRM PASSWORD</label>
-                        <input id="passwordConfirm" type="password" required>
+                        <input id="passwordConfirm" type="password" required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'>
+                        <div class="error"></div>
                     </div>
                 </fieldset>
             </section>
 
-            <button id="createAccount">Create Account</button>
+            <button id="createAccount-submit" type="submit">Create Account</button>
         </form>
 
         <p>Already have an account?
